@@ -1,4 +1,4 @@
 declare interface IModel {
   queryById() : void
-  create(): void
+  add(rows: Record<string, any> []): void
 }

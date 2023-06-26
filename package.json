@@ -6,6 +6,7 @@
     "preview": "node .output/server/index.mjs"
   },
   "dependencies": {
+    "mysql2": "^3.3.3",
     "nitropack": "latest"
   }
 }
