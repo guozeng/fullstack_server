@@ -1,5 +1,5 @@
-import customers from "@models/users.ts";
+import users from "@models/users.ts";
 export default eventHandler(async (event) => {
   const body = await readBody(event)
-  return customers.add(body)
+  return users.reg(body.data)
 })
