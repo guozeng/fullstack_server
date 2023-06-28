@@ -1,11 +1,12 @@
 import DB from '@db/DB.ts'
 import { encrypt2Hash, verifyWithHash } from '@u/crypto.ts'
+import { RSA } from "@u/RSA.ts";
 import getSql from './sql/index.ts'
 
 const model: IUserModel = {
   async reg(userInfo) {
     const sql = await getSql('users/reg-account')
-    const result = await DB(sql.toString(), [userInfo.account, encrypt2Hash(userInfo.password)])
+    const result = await DB(sql.toString(), [userInfo.account, encrypt2Hash(RSA.decrypt(userInfo.password, 'utf-8'))])
     let msg: string, data: boolean, code: number
     if (result.errCode) {
       msg = '注册失败'
@@ -46,7 +47,8 @@ const model: IUserModel = {
     } else {
       const password = result.result[0]?.password || '_'
       const [ hash, salt ] = password.split('_')
-      if (verifyWithHash(userInfo.password, salt, hash)) {
+      const pass = RSA.decrypt(userInfo.password, 'utf-8')
+      if (verifyWithHash(pass, salt, hash)) {
         msg = '登录成功'
         code = 200
         data = true

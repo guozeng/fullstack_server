@@ -7,6 +7,10 @@
   },
   "dependencies": {
     "mysql2": "^3.3.3",
-    "nitropack": "latest"
+    "nitropack": "latest",
+    "node-rsa": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node-rsa": "^1.1.1"
   }
 }
