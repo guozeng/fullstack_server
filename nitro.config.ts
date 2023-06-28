@@ -3,7 +3,8 @@ import { defineNitroConfig } from "nitropack/config";
 export default defineNitroConfig({
   alias: {
     '@models': 'models',
-    '@db': 'db'
+    '@db': 'db',
+    '@u': 'utils',
   },
   serverAssets: [
     {

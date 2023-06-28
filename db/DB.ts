@@ -12,7 +12,7 @@ async function DB(sql: string, params?: Array<any>) {
     errCode = error.code
     sqlMessage = error.sqlMessage
   } finally {
-    connection.end()
+    connection && connection.end()
   }
   return {
     errCode: errCode || null,

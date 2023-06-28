@@ -4,7 +4,9 @@
     "allowImportingTsExtensions": true,
     "baseUrl": ".",
     "paths": {
-      "@*": ["*"]
+      "@db/*": ["db/*"],
+      "@u/*": ["utils/*"],
+      "@models/*": ["models/*"]
     }
   }
 }
