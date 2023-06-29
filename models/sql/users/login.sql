@@ -1,1 +1,1 @@
-select password from t_users where account = ?
+select * from t_users where account = ?

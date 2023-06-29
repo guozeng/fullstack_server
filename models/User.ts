@@ -7,7 +7,7 @@ import getSql from './sql/index.ts'
 class User {
   async reg(user: Pick<IUser, 'account' | 'password'>): Promise<IResult> {
     const sql = await getSql('users/reg-account')
-    const result = await DB(sql.toString(), [user.account, encrypt2Hash(RSA.decrypt(user.password, 'utf-8'))])
+    const result = await DB(sql, [user.account, encrypt2Hash(RSA.decrypt(user.password, 'utf-8'))])
     const { errCode } = result
     const res: IResult = {
       code: 201,
@@ -26,7 +26,7 @@ class User {
   }
   async loginByAccount(user: Pick<IUser, 'account' | 'password'>) : Promise<IResult> {
     const sql = await getSql('users/login')
-    const result = await DB(sql.toString(), [user.account])
+    const result = await DB(sql, [user.account])
     const { errCode, data } = result
     const res: IResult = {
       code: 202,
@@ -50,6 +50,11 @@ class User {
           res.code = 600022
           res.msg = code2msg[res.code]
           res.data = null
+        } else {
+          delete data[0].password
+          res.data = {
+            ...data[0]
+          }
         }
       }
     }
