@@ -6,6 +6,7 @@
     "paths": {
       "@db/*": ["db/*"],
       "@u/*": ["utils/*"],
+      "@c/*": ["config/*"],
       "@models/*": ["models/*"]
     }
   }

@@ -16,7 +16,4 @@ declare interface IResult {
   code: number,
   data: any
 }
-declare interface IUserModel {
-  reg(userInfo: Pick<IUser, 'account' | 'password'>): IResult | Promise<IResult>,
-  loginByAccount(userInfo: Pick<IUser, 'account' | 'password'>) : IResult | Promise<IResult>,
-}
+

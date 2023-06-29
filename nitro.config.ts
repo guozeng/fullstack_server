@@ -5,6 +5,7 @@ export default defineNitroConfig({
     '@models': 'models',
     '@db': 'db',
     '@u': 'utils',
+    '@c': 'config',
   },
   serverAssets: [
     {

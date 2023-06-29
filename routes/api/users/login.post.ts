@@ -1,4 +1,4 @@
-import users from "@models/users.ts";
+import users from "@models/User.ts";
 export default eventHandler(async (event) => {
   const body = await readBody(event)
   return users.loginByAccount(body.data)
