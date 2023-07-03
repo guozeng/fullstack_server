@@ -6,6 +6,8 @@
     "preview": "node .output/server/index.mjs"
   },
   "dependencies": {
+    "cookie": "^0.5.0",
+    "jsonwebtoken": "^9.0.0",
     "mysql2": "^3.3.3",
     "nitropack": "latest",
     "node-rsa": "^1.1.1"
