@@ -5,8 +5,8 @@ const NodeRSA = require("node-rsa")
 const RSA = new NodeRSA({ b: 512 })
 RSA.setOptions({ encryptionScheme: "pkcs1" })
 
-const key = RSA.exportKey()
+const RSAPublicKey = RSA.exportKey()
 export {
-  key,
+  RSAPublicKey,
   RSA
 }
