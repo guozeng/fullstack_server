@@ -60,6 +60,24 @@ class User {
     }
     return res
   }
+  async getDetailByAccount(user: Pick<IUser, 'account'>) : Promise<IResult> {
+    const sql = await getSql('users/query-by-account')
+    const result = await DB(sql, [user.account])
+    const { errCode, data } = result
+    const res: IResult = {
+      code: 200,
+      msg: '',
+      data: null
+    }
+    if (data && data.length > 0) {
+      delete data[0].password
+      res.data = data[0]
+    }
+    if (errCode) {
+      DBException(res)
+    }
+    return res
+  }
 }
 
 export default new User

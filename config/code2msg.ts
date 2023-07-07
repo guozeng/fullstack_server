@@ -6,6 +6,7 @@ function getCode2Msg () {
     600022: '密码错误',
     201: '注册成功',
     202: '登录成功',
+    203: '上传成功',
   }
 }
 const code2msg = getCode2Msg()
